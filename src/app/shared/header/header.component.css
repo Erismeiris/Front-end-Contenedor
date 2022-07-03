@@ -1,0 +1,8 @@
+.logout{   
+    color: black;
+    width: 20px;
+}
+
+.nav-link:hover::before{
+content: attr(data-hover);
+}

@@ -1,0 +1,74 @@
+
+<div class="content-wrapper">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6" id="bodyForm">
+                    <div class="card-header" id="card-header">
+                        <h3 class="card-title">Registro de usuario</h3>
+                      </div> 
+                      <form [formGroup]="registerForm" (ngSubmit)="crearUsuario()">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="name">Nombre</label>
+                                <input type="text" class="form-control"
+                                 formControlName="nombre"
+                                 placeholder="Nombre">
+                              </div>
+
+
+                          <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" class="form-control"
+                             formControlName="email"
+                             placeholder="Correo electrónico">
+                          </div>
+
+                          <div class="form-group">
+                            <label for="ci">Número de identidad</label>
+                            <input type="number" class="form-control"
+                             formControlName="ci"
+                             placeholder="Numero de Identidad">
+                          </div>
+
+                          <div class="form-group">
+                            <label for="direccionParticular">Dirección en Cuba</label>
+                            <input type="text" class="form-control"
+                             
+                             formControlName="direccionParticular"
+                             placeholder="Direccion Particular">
+                          </div>
+                          <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" 
+                            class="form-control" 
+                            placeholder="Password"
+                            formControlName="password">
+                          </div>
+
+                          <div class="form-group">
+                            <label for="password2">Confirma Password</label>
+                            <input type="password" 
+                            class="form-control" 
+                            
+                             placeholder="Confirma Contraseña"
+                             formControlName="password2">
+                          </div>
+                        
+                        </div>
+                        <!-- /.card-body -->
+        
+                        <div class="card-footer">
+                          <button type="submit" class="btn btn-primary">Registrame</button>
+                          <p class="mt-3">
+                            <a routerLink="/login" class="text-center">Ya tengo una cuenta...</a>
+                          </p>
+                        </div>
+                        
+                      </form>
+    
+                </div>
+            </div> 
+        </div> 
+    </section>
+    </div>

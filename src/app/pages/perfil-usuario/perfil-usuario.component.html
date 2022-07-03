@@ -1,0 +1,87 @@
+<div class="row ml-5">
+    <div class="col-md-6">
+
+   
+<div class="card card-info">
+    <div class="card-header">
+      <h3 class="card-title">My Profile</h3>
+    </div>
+    <form [formGroup]="profileForm" (ngSubmit)="actualizarPerfil()">
+    <div class="card-body">
+       <!--input nombre-->
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-user"></i></span>
+        </div>
+        <input type="text" 
+        class="form-control" 
+        formControlName="nombre"
+        placeholder="Nombre">
+      </div>
+
+      <!--input email-->
+       <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+        </div>
+        <input type="email" class="form-control"
+        formControlName="email" 
+        placeholder="Email">
+      </div>
+
+
+      <!--input ci-->
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">C.I</span>
+        </div>
+        <input type="number" class="form-control" 
+        formControlName="ci"
+        placeholder="Número de Identidad">
+      </div>
+ 
+      <!--input pasaporte-->
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-passport"></i></span>
+        </div>
+        <input type="text" 
+        class="form-control"
+        formControlName="pasaporte"
+         placeholder="Pasaporte">
+      </div>
+
+
+      <!--input direccionParticular-->
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+        </div>
+        <input type="text" class="form-control"
+        formControlName="direccionParticular"
+        placeholder="Dirección Particular">
+      </div>
+
+
+       <!--input password-->
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> *** </span>
+        </div>
+        <input type="password" class="form-control"
+         formControlName="password">
+         </div>
+
+          
+      <div class="input-group input-group-sm mt-5">
+              
+          <button type="submit" class="btn btn-info">Cambiar</button>
+       
+      </div>
+      <!-- /input-group -->
+    </div>
+</form>
+    <!-- /.card-body -->
+  </div>
+</div>
+</div>
