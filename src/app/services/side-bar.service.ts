@@ -12,6 +12,7 @@ export class SideBarService {
       {title:'Ver Bultos', url: 'ver-bultos' },
       {title:'Ver Contenedor', url: 'ver-contenedor'},
       {title:'Perfil de Usuario', url: 'perfil'},
+      {title:'Control de usuarios', url: 'control-usuario'},
       ]
   
   

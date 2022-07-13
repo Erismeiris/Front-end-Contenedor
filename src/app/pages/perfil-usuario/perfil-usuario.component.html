@@ -63,21 +63,25 @@
       </div>
 
 
-       <!--input password-->
+      <!--input Rol -->
+      <!--  
       <div class="input-group">
         <div class="input-group-prepend">
-          <span class="input-group-text"> *** </span>
+          <span class="input-group-text"> Role</span>
         </div>
-        <input type="password" class="form-control"
-         formControlName="password">
-         </div>
+        <select class="form-control"
+         formControlName="rol">
+         <option value="ADMIN_ROLE">Admin</option>
+         <option value="USER_ROLE">User</option>
+         </select>
+         </div> -->
 
           
       <div class="input-group input-group-sm mt-5">
-              
-          <button type="submit" class="btn btn-info">Cambiar</button>
-       
+            <button type="submit" class="btn btn-info">Cambiar</button>
+            <button type="submit" class="btn btn-warning ml-5" (click)="cancelar()">Cancelar</button>
       </div>
+      
       <!-- /input-group -->
     </div>
 </form>

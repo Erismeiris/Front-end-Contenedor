@@ -9,6 +9,7 @@ import { ViewBultosComponent } from './view-bultos/view-bultos.component';
 import { ViewContenedorComponent } from './view-contenedor/view-contenedor.component';
 import { UsuarioGuard } from '../guard/usuario.guard';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
+import { ControlUsuariosComponent } from './control-usuarios/control-usuarios.component';
 
 
 const routes:Routes=[
@@ -21,6 +22,7 @@ const routes:Routes=[
     {path:'ver-bultos', component:ViewBultosComponent},
     {path:'ver-contenedor', component:ViewContenedorComponent},
     {path:'perfil', component:PerfilUsuarioComponent},
+    {path:'control-usuario', component:ControlUsuariosComponent},
     
   ]
 }

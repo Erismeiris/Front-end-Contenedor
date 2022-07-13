@@ -14,6 +14,7 @@ import { CrearBultoComponent } from './crear-bulto/crear-bulto.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.component';
+import { ControlUsuariosComponent } from './control-usuarios/control-usuarios.component';
 
 
 
@@ -26,6 +27,7 @@ import { PerfilUsuarioComponent } from './perfil-usuario/perfil-usuario.componen
     CrearContenedorComponent,
     CrearBultoComponent,
     PerfilUsuarioComponent,
+    ControlUsuariosComponent,
   ],
   imports: [
     CommonModule,

@@ -1,12 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { catchError, map, Observable, of, tap } from 'rxjs';
+import { catchError, delay, map, Observable, of, tap } from 'rxjs';
 
 import { environment } from '../../environments/environment';
 import { RegisterForm, LoginForm } from '../interfaces/login-form.interfaces';
 import { profileForm } from '../interfaces/profileForm';
 import { Usuario } from '../models/usuario.model'; 
+import { CargarUsuarios } from '../interfaces/cargar-usuarios.interfaces';
+
 
 
 const base_url = environment.base_url;
@@ -25,6 +27,11 @@ export class UsuarioService {
     get token(): string {
       return localStorage.getItem('token') || ''
     } 
+    get headers(){
+      return { headers: {
+        'x-token': this.token
+      }}
+    }
 
     get uid():string{
       return this.usuario?._id || '';
@@ -51,12 +58,10 @@ export class UsuarioService {
 validarToken():Observable <boolean>{
  
 
- return this.http.get(`${base_url}/login/renew`, {
-  headers:{'x-token': this.token}
- }).pipe(
+ return this.http.get(`${base_url}/login/renew`, this.headers).pipe(
   tap( (resp:any) => {
-    const {nombre, ci, pasaporte, direccionParticular, email, password, rol, _id } = resp.usuarioDB
-    this.usuario = new Usuario(nombre, email, password,pasaporte, ci, direccionParticular, rol, _id);
+    const {nombre, ci, pasaporte, direccionParticular, email, rol, _id } = resp.usuarioDB
+    this.usuario = new Usuario(nombre, email, pasaporte, ci, direccionParticular, rol, _id);
     localStorage.setItem('token', resp.token);
   }),
   map( resp => true),
@@ -72,7 +77,7 @@ logout(){
   localStorage.removeItem('token')
 }
 
-//***** actualizar uduario ******//
+//***** actualizar usuario ******//
 
 actualizarUsuario( data: profileForm){
 
@@ -80,15 +85,33 @@ actualizarUsuario( data: profileForm){
     ...data,
     rol: this.usuario?.rol || ''
   }
-  return this.http.put(`${base_url}/usuarios/${this.uid}`, data, {
-    headers: {
-      'x-token': this.token
-    }
-  })
+  return this.http.put(`${base_url}/usuarios/${this.uid}`, data, this.headers)
   }
 
  
+cargarUsuarios(){
+  const url = `${base_url}/usuarios/`;
 
+  return this.http.get<CargarUsuarios>(url, this.headers)
+  .pipe(
+    delay(1000)
+  )
+}
+
+eliminarUsuario(usuario:Usuario ){
+
+  const url = `${base_url}/usuarios/${usuario._id}`
+  return this.http.delete(url, this.headers) 
+}
+
+
+actualizarRoleUsuario( data: Usuario){
+  const uid = data._id
+ 
+  return this.http.put(`${base_url}/usuarios/${uid}`, data, this.headers)
+
+  }
+ 
 
 
 }

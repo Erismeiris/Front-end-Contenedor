@@ -3,7 +3,6 @@
     constructor(
         public nombre: string,
         public email:string,
-        public password:string,
         public pasaporte?:string,
         public ci?:number,
         public direccionParticular?:string,

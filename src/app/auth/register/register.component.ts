@@ -15,13 +15,13 @@ export class RegisterComponent implements OnInit {
 
   public registerForm = this.fb.group({
     nombre:['Erismeiris', Validators.required],
-    email: ['eris@gmail.com', [Validators.required, Validators.email]],
+    email: ['meidis@gmail.com', [Validators.required, Validators.email]],
     ci: [11111111111,Validators.required],
     pasaporte:['E349685',Validators.required],
     password:['123456', Validators.required],
     password2:['123456', Validators.required],
-    direccionParticular:'',
-    rol:'admin'
+    direccionParticular:'Niquero',
+    rol:'USER_ROLE'
     }, {Validators: this.passwordsIguales('password','password2')})
 
  

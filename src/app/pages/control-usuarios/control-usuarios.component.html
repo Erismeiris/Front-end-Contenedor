@@ -1,0 +1,92 @@
+<!-- Main content -->
+
+
+
+<div class="row">
+  <div class="col-md-4 offset-md-2 mb-2">
+    <form action="simple-results.html">
+      <div class="input-group">
+        <input type="search" class="form-control form-control-lg" 
+        placeholder="Escribe lo que deseas buscar..."
+        (keyup)="buscar(txtTermino.value)"
+        #txtTermino>
+        <div class="input-group-append">
+          <button type="submit" class="btn btn-lg btn-default">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="row center">
+  <div class="col-md-10 offset-md-2">
+
+
+    <!-- Show users table -->
+
+    <div class="card">
+      <div class="card-header bg-danger">
+        <h3 class="card-title">Listado de usuarios</h3>
+      </div>
+      <!-- Loading (remove the following to stop the loading)-->
+      <div class="overlay dark" *ngIf="cargando">
+        <i class="fas fa-spin fa-sync-alt"></i>
+        <p class="mb-0">Por favor espere</p>
+      </div>
+      <!-- end loading -->
+      <!-- /.card-header -->
+      <div class="card-body p-0" *ngIf="!cargando">
+        <span>Total de usuarios({{totalDeUsuarios}})</span>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th style="width: 10px">#</th>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Dirección</th>
+              <th>Pasaporte</th>
+              <th>Carnet de Identidad</th>
+              <th>Rol</th>
+              <th>Label</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let usuario of usuarios; let i = index;">
+              <td>{{i+1}}</td>
+              <td>{{usuario.nombre}}</td>
+              <td>{{usuario.email}}</td>
+              <td>{{usuario.direccionParticular}}</td>
+              <td>{{usuario.pasaporte}}</td>
+              <td>{{usuario.ci}}</td>
+              <td>
+                 <select class="form-control" 
+                 [(ngModel)]="usuario.rol"
+                 (change)="cambiarRole(usuario)">
+                  <option value="ADMIN_ROLE">Admin</option>
+                  <option value="USER_ROLE">User</option>
+                </select>
+              </td>
+              <td class="w100">
+                <a (click)="editarUsuario()" class="pointer"><i class="fas fa-edit mr-2"></i></a>
+                <a (click)="eliminarUsuario(usuario)" class="pointer" ><i class="fas fa-trash text-danger ml-2"></i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- /.card-body -->
+    </div>
+
+
+
+
+
+
+
+
+    <!-- /.card -->
+  </div>
+</div>
